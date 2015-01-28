@@ -1,0 +1,33 @@
+@(incentive :view.model.IncentiveOutput)
+<Incentive>
+	<ComarOrder>@incentive.comarOrder</ComarOrder>
+	<Sap>
+		<OrderNumber>@incentive.sap.orderNumber</OrderNumber>
+		<InvoiceNumber>@incentive.sap.invoiceNumber</InvoiceNumber>
+	    <sapDealerCode>@incentive.sap.sapDealerCode</sapDealerCode>
+	</Sap>
+	<SerialNumber>@incentive.serialNumber</SerialNumber>
+	<Bmc>@incentive.bmc</Bmc>
+	<ModelDescription>@incentive.modelDescription</ModelDescription>
+	<dealerAccount>@incentive.dealerAccount</dealerAccount>
+	<OrderDate>@incentive.orderDate</OrderDate>
+	<Pre-soldDate>@incentive.preSoldDate</Pre-soldDate>
+	<RetailSoldDate>@incentive.retailSoldDate</RetailSoldDate>
+	<InvoiceDate>@incentive.invoiceDate</InvoiceDate>
+	<InvoiceAmount>@incentive.invoiceAmount</InvoiceAmount>
+	<DocumentDate>@incentive.documentDate</DocumentDate>
+	<QuotationNumber>@incentive.quotationNumber</QuotationNumber>
+	@if(!incentive.discounts.isEmpty) {
+	<Discounts>
+	@for(discount <- incentive.discounts) {
+	  <Discount>
+		<CtCode>@discount.ctCode</CtCode>
+		<ctDescription>@discount.ctDescription</ctDescription>
+		<PercentageAmount>@discount.percentageAmount</PercentageAmount>
+		<NetPrice>@discount.netPrice</NetPrice>
+	    <CurrencyType>@discount.currencyType</CurrencyType>
+	  </Discount>  
+     }
+     </Discounts>
+    }
+</Incentive>
